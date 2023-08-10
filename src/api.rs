@@ -35,6 +35,14 @@ impl Api {
         }
     }
 
+    pub fn new_with_client(url: String, client: reqwest::Client) -> Api {
+        Api {
+            url,
+            headers: HeaderMap::new(),
+            client,
+        }
+    }
+
     /// Add arbitrary headers to the request. For instance when you may want to connect
     /// through an API gateway that needs an API key header.
     ///
@@ -149,6 +157,7 @@ impl Api {
             }),
         };
 
+        println!("{}", endpoint);
         let response: Session = self
             .client
             .post(endpoint)

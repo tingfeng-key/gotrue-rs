@@ -28,6 +28,13 @@ impl Client {
         }
     }
 
+    pub fn new_with_api(api: Api) -> Client {
+        Client {
+            current_session: None,
+            api,
+        }
+    }
+
     /// Signs up a new user.
     ///
     /// # Example
