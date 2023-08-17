@@ -157,7 +157,6 @@ impl Api {
             }),
         };
 
-        println!("{}", endpoint);
         let response: Session = self
             .client
             .post(endpoint)
